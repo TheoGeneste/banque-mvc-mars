@@ -13,3 +13,10 @@ function fetchClients() {
     // Renvoie les données du tableau dans php
     return $request->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function insertClient($nom, $prenom, $mail, $telephone){
+    $bdd = new BDD();
+    $conn = $bdd->connect();
+    $request = $conn->prepare('INSERT INTO clients (Nom, Prenom, Mail, Telephone) VALUES (?,?,?,?);');
+    $request->execute([$nom, $prenom, $mail, $telephone]);
+}

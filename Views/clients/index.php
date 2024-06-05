@@ -1,3 +1,4 @@
+<button onclick="redirectToCreateClient()">Ajouter un client</button>
 <table>
     <thead>
         <th>ID</th>
@@ -20,3 +21,10 @@
         ?>
     </tbody>
 </table>
+
+<script type="text/javascript">
+  function redirectToCreateClient() {
+    // ?action=create fait en sorte de passer une valeur par la méthode GET
+    window.location.replace("../../Controllers/ClientController.php?action=create");
+  }
+</script>
