@@ -11,3 +11,5 @@ function fetchComptes() {
     $request->execute();
     return $request->fetchAll(PDO::FETCH_ASSOC);
 }
+
+// Créé la fonction insertCompte pour inserer en bdd
