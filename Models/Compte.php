@@ -27,3 +27,5 @@ function getComptesByClient($idClient){
     $request->execute([$idClient]);
     return $request->fetchAll(PDO::FETCH_ASSOC);
 }
+
+// Crée une fonction pour récuperer le compte par son id avec les infos du client (JOINTURE)

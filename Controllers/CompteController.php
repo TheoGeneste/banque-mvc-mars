@@ -21,5 +21,9 @@ if (!isset($_GET['action'])) {
         $FKClient = $_POST['client'];
         insertCompte($numeroCompte, $solde, $FKClient);
         header('Location: CompteController.php');
-    }   
+    }
+    // ajouter une condition $_GET['action'] == details
+    // Récuperer l'id du compte 
+    // afficher les infos du compte et du client associer a celui ci
+    // Faire un includes de la page comptes/details.php
 }
