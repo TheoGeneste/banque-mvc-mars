@@ -14,6 +14,7 @@
                     echo "<td>". $compte["NumeroCompte"] ."</td>";
                     echo "<td>". $compte["SOLDE"] ."</td>";
                     echo "<td>". $compte["FK_CLIENT"] ."</td>";
+                    // Ajouter un td et un bouton faisant une redirection via une function js
                 echo "</tr>";
             }
         ?>
@@ -23,4 +24,6 @@
     function redirectToCreateCompte(){
         window.location.replace("../../Controllers/CompteController.php?action=create")
     }
+
+    // Créé la function JS pour etre rediriger
 </script>
