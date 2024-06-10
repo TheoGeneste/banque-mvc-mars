@@ -1,6 +1,6 @@
 <?php
 require_once '../Models/Compte.php';
-
+require_once '../Models/Client.php';
 // Mise en place des if avec les conditions $_GET
 // Le premier if vérifie que get est null si oui on afficher la page comptes/index.js
 // Sinon on fait d'autre if selon $_GET['action']
@@ -12,6 +12,7 @@ if (!isset($_GET['action'])) {
     include '../Views/comptes/index.php';
 }else{
     if($_GET['action'] == 'create') {
+        $clients = fetchClients();
         include '../Views/comptes/create.php';
     }   
     if($_GET['action'] == 'insert') {
