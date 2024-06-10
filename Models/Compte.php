@@ -29,3 +29,13 @@ function getComptesByClient($idClient){
 }
 
 // Crée une fonction pour récuperer le compte par son id avec les infos du client (JOINTURE)
+function getCompteByID($id){
+    $bdd = new Bdd();
+    $conn = $bdd->connect();
+    $request = $conn->prepare("SELECT comptes.ID, NumeroCompte, SOLDE, Nom, Prenom, Mail, Telephone 
+                                FROM comptes 
+                                INNER JOIN clients on clients.ID = FK_CLIENT
+                                WHERE comptes.ID = ?");
+    $request->execute([$id]);
+    return $request->fetch(PDO::FETCH_ASSOC);
+}
