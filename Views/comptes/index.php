@@ -1,3 +1,4 @@
+<button onclick="redirectToCreateCompte()">Ajouter un comptes</button>
 <table>
     <thead>
         <th>ID</th>
@@ -18,3 +19,8 @@
         ?>
     </tbody>
 </table>
+<script type="text/javascript">
+    function redirectToCreateCompte(){
+        window.location.replace("../../Controllers/CompteController.php?action=create")
+    }
+</script>

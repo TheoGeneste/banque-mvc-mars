@@ -13,3 +13,9 @@ function fetchComptes() {
 }
 
 // Créé la fonction insertCompte pour inserer en bdd
+function insertCompte($numeroCompte, $solde, $FKClient){
+    $bdd = new Bdd();
+    $conn = $bdd->connect();
+    $request = $conn->prepare("INSERT INTO comptes(NumeroCompte, SOLDE, FK_CLIENT) VALUES (?,?,?);");
+    $request->execute([$numeroCompte, $solde, $FKClient]);
+}
