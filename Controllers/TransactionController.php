@@ -4,9 +4,13 @@
 require_once '../Models/Compte.php';
 
 if (!isset($_GET['action'])) {
-    $comptes = fetchComptes();
-    include '../Views/transactions/index.php';
+   // Aller chercher toutes les transaction grace au model
+//    include de transactions/index.php
 }else{
+    if ($_GET['action'] == "create") {
+        $comptes = fetchComptes();
+        include '../Views/transactions/create.php';
+    }
     if ($_GET['action'] == "insert") {
         $debiteur = $_POST['debiteur'];
         $montant = $_POST['montant'];
@@ -15,4 +19,5 @@ if (!isset($_GET['action'])) {
         updateCompteMontantBeneficiaire($montant, $beneficiaire);
         header('Location: CompteController.php');
     }
+
 }
