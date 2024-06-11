@@ -1,6 +1,7 @@
 <button onclick="redirectToClients()">Clients</button>
 <button onclick="redirectToComptes()">Comptes</button>
-<!-- Ajouter un bouton pour faire un virement -->
+<button onclick="redirectToTransactions()">Transactions</button>
+
 <script type="text/javascript">
 
     // Function pour rediriger vers le fichier ClientController
@@ -13,6 +14,8 @@
         window.location.replace('./Controllers/CompteController.php');
     }
 
-    // Ajouter une fonction de redirection pour le virement
+    function redirectToTransactions() {
+        window.location.replace('./Controllers/TransactionController.php');
+    }
 
 </script>
