@@ -2,10 +2,13 @@
  et faire un include de transacions/index.php -->
 <?php 
 require_once '../Models/Compte.php';
+require_once '../Models/Transaction.php';
 
 if (!isset($_GET['action'])) {
    // Aller chercher toutes les transaction grace au model
 //    include de transactions/index.php
+    $transactions = fetchTransactions();
+    include '../Views/transactions/index.php';
 }else{
     if ($_GET['action'] == "create") {
         $comptes = fetchComptes();
@@ -17,7 +20,8 @@ if (!isset($_GET['action'])) {
         $beneficiaire = $_POST['beneficiaire'];
         updateCompteMontantDebiteur($montant, $debiteur);
         updateCompteMontantBeneficiaire($montant, $beneficiaire);
-        header('Location: CompteController.php');
+        insertTransaction($beneficiaire,$debiteur, $montant);
+        header('Location: TransactionController.php');
     }
 
 }
