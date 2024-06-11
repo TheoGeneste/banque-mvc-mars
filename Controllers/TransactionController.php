@@ -7,5 +7,12 @@ if (!isset($_GET['action'])) {
     $comptes = fetchComptes();
     include '../Views/transactions/index.php';
 }else{
-
+    if ($_GET['action'] == "insert") {
+        $debiteur = $_POST['debiteur'];
+        $montant = $_POST['montant'];
+        $beneficiaire = $_POST['beneficiaire'];
+        updateCompteMontantDebiteur($montant, $debiteur);
+        updateCompteMontantBeneficiaire($montant, $beneficiaire);
+        header('Location: CompteController.php');
+    }
 }

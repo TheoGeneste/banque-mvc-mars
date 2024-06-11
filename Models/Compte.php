@@ -39,3 +39,17 @@ function getCompteByID($id){
     $request->execute([$id]);
     return $request->fetch(PDO::FETCH_ASSOC);
 }
+
+function updateCompteMontantDebiteur($montant, $id) {
+    $bdd = new Bdd();
+    $conn = $bdd->connect();
+    $request = $conn->prepare("UPDATE comptes SET SOLDE = SOLDE - ? WHERE ID = ?");
+    $request->execute([$montant, $id]);
+}
+
+function updateCompteMontantBeneficiaire($montant, $id) {
+    $bdd = new Bdd();
+    $conn = $bdd->connect();
+    $request = $conn->prepare("UPDATE comptes SET SOLDE = SOLDE + ? WHERE ID = ?");
+    $request->execute([$montant, $id]);
+}
